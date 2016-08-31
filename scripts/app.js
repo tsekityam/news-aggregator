@@ -251,19 +251,30 @@ APP.Main = (function() {
     var height = main.offsetHeight;
     var mainPosition = main.getBoundingClientRect();
     var documentTop = document.body.getBoundingClientRect().top;
+
+    var values = [];
     for (var s = 0; s < storyElements.length; s++) {
 
       var story = storyElements[s];
       var score = story.querySelector('.story__score');
-      var title = story.querySelector('.story__title');
 
       // Base the scale on the y position of the score.
       var scoreLocation = score.getBoundingClientRect().top - documentTop;
 
       var value = 0.5 * ((scoreLocation - 170) / height);
-      if (1 < value || value < 0) {
+      values.push(value);
+    }
+
+    for (var s = 0; s < storyElements.length; s++) {
+
+      var value = values[s];
+      if (0 > value || value > 1) {
         continue;
       }
+
+      var story = storyElements[s];
+      var score = story.querySelector('.story__score');
+      var title = story.querySelector('.story__title');
 
       var scale = Math.min(1, 1 - value * 0.1);
       var opacity = Math.min(1, 1 - value);
