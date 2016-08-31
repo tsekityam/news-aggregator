@@ -169,7 +169,6 @@ APP.Main = (function() {
     inDetails = true;
 
     var storyDetails = $('#sd-' + id);
-    var left = null;
 
     if (!storyDetails)
       return;
@@ -177,17 +176,14 @@ APP.Main = (function() {
     document.body.classList.add('details-active');
     storyDetails.style.opacity = 1;
 
+    // Find out where it currently is.
+    var storyDetailsPosition = storyDetails.getBoundingClientRect();
+    var left = storyDetailsPosition.left;
+
     function animate (timestamp) {
 
-      // Find out where it currently is.
-      var storyDetailsPosition = storyDetails.getBoundingClientRect();
-
-      // Set the left value if we don't have one already.
-      if (left === null)
-        left = storyDetailsPosition.left;
-
       // Now figure out where it needs to go.
-      left += (0 - storyDetailsPosition.left) * 0.1;
+      left += (0 - left) * 0.1;
 
       // Set up the next bit of the animation if there is more to do.
       if (Math.abs(left) > 0.5)
@@ -195,8 +191,6 @@ APP.Main = (function() {
       else
         left = 0;
 
-      // And update the styles. Wait, is this a read-write cycle?
-      // I hope I don't trigger a forced synchronous layout!
       storyDetails.style.left = left + 'px';
     }
 
