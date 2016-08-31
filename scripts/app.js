@@ -259,6 +259,12 @@ APP.Main = (function() {
       var mainPosition = main.getBoundingClientRect();
       var scoreLocation = score.getBoundingClientRect().top -
           document.body.getBoundingClientRect().top;
+
+      var value = 1 - (0.5 * ((scoreLocation - 170) / height));
+      if (value > 1 || value < 0) {
+        continue;
+      }
+
       var scale = Math.min(1, 1 - (0.05 * ((scoreLocation - 170) / height)));
       var opacity = Math.min(1, 1 - (0.5 * ((scoreLocation - 170) / height)));
 
