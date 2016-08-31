@@ -260,13 +260,13 @@ APP.Main = (function() {
       // Base the scale on the y position of the score.
       var scoreLocation = score.getBoundingClientRect().top - documentTop;
 
-      var value = 1 - (0.5 * ((scoreLocation - 170) / height));
-      if (value > 1 || value < 0) {
+      var value = 0.5 * ((scoreLocation - 170) / height);
+      if (1 < value || value < 0) {
         continue;
       }
 
-      var scale = Math.min(1, 1 - (0.05 * ((scoreLocation - 170) / height)));
-      var opacity = Math.min(1, 1 - (0.5 * ((scoreLocation - 170) / height)));
+      var scale = Math.min(1, 1 - value * 0.1);
+      var opacity = Math.min(1, 1 - value);
 
       var width = (scale * 40);
       score.style.width = width + 'px';
