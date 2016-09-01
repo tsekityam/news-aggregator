@@ -188,6 +188,7 @@ APP.Main = (function() {
       else
         left = 0;
 
+      // And update the styles.
       storyDetails.style.left = left + 'px';
     }
 
