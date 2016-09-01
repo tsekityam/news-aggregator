@@ -208,12 +208,13 @@ APP.Main = (function() {
     document.body.classList.remove('details-active');
     storyDetails.style.opacity = 0;
 
+    var mainPosition = main.getBoundingClientRect();
+    var target = mainPosition.width + 100;
+
     function animate () {
 
       // Find out where it currently is.
-      var mainPosition = main.getBoundingClientRect();
       var storyDetailsPosition = storyDetails.getBoundingClientRect();
-      var target = mainPosition.width + 100;
 
       // Now figure out where it needs to go.
       left += (target - storyDetailsPosition.left) * 0.1;
