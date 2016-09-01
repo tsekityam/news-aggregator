@@ -173,7 +173,6 @@ APP.Main = (function() {
     if (!storyDetails)
       return;
 
-    document.body.classList.add('details-active');
     storyDetails.style.opacity = 1;
 
     // Find out where it currently is.
@@ -195,6 +194,8 @@ APP.Main = (function() {
     }
 
     requestAnimationFrame(animate);
+    
+    document.body.classList.add('details-active');
   }
 
   function hideStory(id) {
