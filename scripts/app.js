@@ -173,8 +173,6 @@ APP.Main = (function() {
     if (!storyDetails)
       return;
 
-    storyDetails.style.opacity = 1;
-
     // Find out where it currently is.
     var storyDetailsPosition = storyDetails.getBoundingClientRect();
     var left = storyDetailsPosition.left;
@@ -194,7 +192,8 @@ APP.Main = (function() {
     }
 
     requestAnimationFrame(animate);
-    
+
+    storyDetails.style.opacity = 1;
     document.body.classList.add('details-active');
   }
 
