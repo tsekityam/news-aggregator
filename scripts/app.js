@@ -205,8 +205,6 @@ APP.Main = (function() {
     var storyDetails = $('#sd-' + id);
     var left = 0;
 
-    document.body.classList.remove('details-active');
-    storyDetails.style.opacity = 0;
 
     var mainPosition = main.getBoundingClientRect();
     var target = mainPosition.width + 100;
@@ -237,6 +235,8 @@ APP.Main = (function() {
     // it all tight. Or maybe we're doing visual changes
     // and they should be in a requestAnimationFrame
     setTimeout(animate, 4);
+    storyDetails.style.opacity = 0;
+    document.body.classList.remove('details-active');
   }
 
   /**
