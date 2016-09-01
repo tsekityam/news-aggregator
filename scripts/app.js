@@ -122,8 +122,6 @@ APP.Main = (function() {
       storyDetails.classList.add('story-details');
       storyDetails.innerHTML = storyDetailsHtml;
 
-      document.body.appendChild(storyDetails);
-
       commentsElement = storyDetails.querySelector('.js-comments');
       storyHeader = storyDetails.querySelector('.js-header');
       storyContent = storyDetails.querySelector('.js-content');
@@ -133,6 +131,8 @@ APP.Main = (function() {
 
       var headerHeight = storyHeader.getBoundingClientRect().height;
       storyContent.style.paddingTop = headerHeight + 'px';
+
+      document.body.appendChild(storyDetails);
 
       if (typeof kids === 'undefined')
         return;
