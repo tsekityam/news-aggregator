@@ -180,7 +180,7 @@ APP.Main = (function() {
     function animate (timestamp) {
 
       // Now figure out where it needs to go.
-      left += (0 - left) * 0.1;
+      left += (0 - left) * 0.2;
 
       // Set up the next bit of the animation if there is more to do.
       if (Math.abs(left) > 0.5)
@@ -217,7 +217,7 @@ APP.Main = (function() {
     function animate (timestamp) {
 
       // Now figure out where it needs to go.
-      left += (target - left) * 0.1;
+      left += (target - left) * 0.2;
 
       // Set up the next bit of the animation if there is more to do.
       if (Math.abs(left - target) > 0.5) {
