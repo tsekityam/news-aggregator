@@ -195,7 +195,7 @@ APP.Main = (function() {
     requestAnimationFrame(animate);
 
     storyDetails.style.opacity = 1;
-    document.body.classList.add('details-active');
+    main.classList.add('details-active');
   }
 
   function hideStory(id) {
@@ -234,7 +234,7 @@ APP.Main = (function() {
     requestAnimationFrame(animate);
 
     storyDetails.style.opacity = 0;
-    document.body.classList.remove('details-active');
+    main.classList.remove('details-active');
   }
 
   /**
