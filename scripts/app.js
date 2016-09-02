@@ -208,7 +208,7 @@ APP.Main = (function() {
 
 
     var mainPosition = main.getBoundingClientRect();
-    var target = mainPosition.width + 100;
+    var target = mainPosition.width;
 
     // Find out where it currently is.
     var storyDetailsPosition = storyDetails.getBoundingClientRect();
