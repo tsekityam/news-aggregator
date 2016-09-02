@@ -241,7 +241,7 @@ main.loading {
   transition: opacity 0.3s ease-out;
 }
 
-.story-details * {
+.story-details {
   will-change: transform;
   transform: translateZ(0);
 }
